@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_SELECTION_SCREEN_CONTROL</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>Controlling the visibility of fields on the selection screen</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <LINES>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;FUNCTIONALITY&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>The class is designed to organize flexible processing of the visibility</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>and mandatory fields on the selection screen of the abap program</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>To use it is necessary:</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M2</TDFORMAT>
+     <TDLINE>In the program, create a successor class in which to override the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>IS_READ_ONLY, IS_NO_INPUT, IS_INVISIBLE method These methods are called</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>in the LOOP AT SCREEN loop for each screen field.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>IS_READ_ONLY method should return ABAP_TRUE if input in the field should</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>be prohibited</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>the IS_NO_INPUT method should return ABAP_TRUE if the input and DISPLAY</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>of data in the field should not be performed (not to be confused with</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>IS_READ_ONLY!). In this mode, the field is displayed empty without the</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>possibility of entering a value.</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>B2</TDFORMAT>
+     <TDLINE>IS_INVISIBLE method should return ABAP_TRUE in case the field should be</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDLINE>hidden on the screen</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M2</TDFORMAT>
+     <TDLINE>Make a PBO method call in the AT SELECTION SCREEN OUTPUT event</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>M2</TDFORMAT>
+     <TDLINE>Make a PAI method call in the AT SELECTION event</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;RELATIONS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;EXAMPLE&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+     <TDLINE>See program ZDEMO_SELECTION_SCREEN_CONTROL</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;HINTS&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>U1</TDFORMAT>
+     <TDLINE>&amp;FURTHER_SOURCES_OF_INF&amp;</TDLINE>
+    </TLINE>
+    <TLINE>
+     <TDFORMAT>AS</TDFORMAT>
+    </TLINE>
+   </LINES>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CONSTRUCTOR</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_INVISIBLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Отображение поля на экране: невидимое</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_NO_INPUT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Отображение поля на экране: без вывода значения</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_READ_ONLY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Отображение поля на экране: только для чтения</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MODIFY_SCREEN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Изменить атрибуты поля в SCREEN во время LOO AT SCREEN</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PAI</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Обработка события AT SELECTION SCREEN</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PBO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Обработка события AT SELECTION SCREEN OUTPUT</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>
