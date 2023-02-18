@@ -1,4 +1,4 @@
-# selection-screen-control
+# Abap selection screen control
 Controlling the visibility of fields on the selection screen of abap program
 
 The class is designed to organize flexible processing of the visibility and mandatory fields on the selection screen of the abap program
