@@ -1,11 +1,10 @@
 # Abap selection screen control
-Controlling the visibility of fields on the selection screen of abap program
+Control the appearance of fields on the abap program selection screen
 
-The class is designed to organize flexible processing of the visibility and mandatory fields on the selection screen of the abap program
-To use it is necessary:
-1. Create a successor class in the program, in which, if necessary, override the IS_READ_ONLY, IS_NO_INPUT, IS_INVISIBLE methods. These methods are called in the LOOP AT SCREEN loop for each screen field.
-   - IS_READ_ONLY method should return ABAP_TRUE if input in the field should be prohibited
-   - IS_NO_INPUT method should return ABAP_TRUE if the input and DISPLAY of data in the field should not be performed (not to be confused with IS_READ_ONLY!). In this mode, the field is displayed empty without the possibility of entering a value.
-   - IS_INVISIBLE method should return ABAP_TRUE in case the field should be hidden on the screen
-2. Make a PBO method call in the AT SELECTION SCREEN OUTPUT event
-3. Make a PAI method call in the AT SELECTION event
+The class is made to facilitate flexible processing of the obligatory and visible fields on the abap program selection screen. To use it, you must:
+1. In the program, make a successor class and, if necessary, override the IS_READ_ONLY, IS_NO_INPUT, and IS_INVISIBLE methods in it. The LOOP AT SCREEN calls these methods once for each screen field.
+- If input into the field is to be banned, the IS_READ_ONLY method should return ABAP_TRUE.
+- If the entry and display of data in the field should not be performed, the IS_NO_INPUT method should return ABAP_TRUE (not to be confused with IS_READ_ONLY!). Without the ability to enter a value, the field is displayed empty in this mode.
+- If the field should be hidden on the screen, the IS_INVISIBLE function should return ABAP_TRUE.
+2. At the AT SELECTION SCREEN OUTPUT event, call the PBO method.
+3. At the AT SELECTION event, call the PAI method.
