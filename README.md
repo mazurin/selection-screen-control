@@ -7,4 +7,4 @@ The class is made to facilitate flexible processing of the obligatory and visibl
 - If the entry and display of data in the field should not be performed, the IS_NO_INPUT method should return ABAP_TRUE (not to be confused with IS_READ_ONLY!). Without the ability to enter a value, the field is displayed empty in this mode.
 - If the field should be hidden on the screen, the IS_INVISIBLE function should return ABAP_TRUE.
 2. At the AT SELECTION SCREEN OUTPUT event, call the PBO method.
-3. At the AT SELECTION event, call the PAI method.
+3. At the AT SELECTION SCREEN event, call the PAI method.
